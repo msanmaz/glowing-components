@@ -9,7 +9,7 @@ interface GlowCardProps {
 
 const GlowCard: React.FC<GlowCardProps> = ({ title, children }) => {
     return (
-        <article className="relative bg-card p-8 aspect-[330/400] rounded-xl min-w-[280px] max-w-[280px] flex flex-col gap-1">
+        <article className="article relative bg-card p-8 aspect-[330/400] rounded-xl min-w-[280px] max-w-[280px] flex flex-col gap-1">
             <div className="glows pointer-events-none absolute inset-0 filter blur-[20px]"></div>
             <span className="header relative flex items-center">
 

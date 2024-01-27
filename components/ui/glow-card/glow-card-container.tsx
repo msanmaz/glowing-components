@@ -27,8 +27,8 @@ const GlowCardContainer: React.FC<GlowCardContainerProps> = ({ children }) => {
         opacity: 0,
     });
 
+
     const updateCardStyles = (event: MouseEvent) => {
-        // Convert children to an array and iterate over each card
         const cards = React.Children.toArray(children);
         cards.forEach((_, index) => {
             const cardElement = containerRef.current?.children[index] as HTMLElement;
@@ -40,21 +40,24 @@ const GlowCardContainer: React.FC<GlowCardContainerProps> = ({ children }) => {
                     event.clientY > cardBounds.top - config.proximity &&
                     event.clientY < cardBounds.bottom + config.proximity
                 );
-
+    
                 const activeOpacity = isWithinProximity ? 1 : config.opacity;
                 cardElement.style.setProperty('--active', activeOpacity.toString());
-
+    
                 if (isWithinProximity) {
                     const cardCenter = [
                         cardBounds.left + cardBounds.width / 2,
                         cardBounds.top + cardBounds.height / 2,
                     ];
-                    const angle = Math.atan2(event.clientY - cardCenter[1], event.clientX - cardCenter[0]) * 180 / Math.PI;
-                    cardElement.style.setProperty('--start', (angle < 0 ? angle + 360 : angle).toString());
+                    let angle = Math.atan2(event.clientY - cardCenter[1], event.clientX - cardCenter[0]) * 180 / Math.PI;
+                    angle = angle < 0 ? angle + 360 : angle;
+                    cardElement.style.setProperty('--start', angle.toString());
                 }
             }
         });
     };
+    
+
 
     useEffect(() => {
         const handlePointerMove = (event: MouseEvent) => updateCardStyles(event);
