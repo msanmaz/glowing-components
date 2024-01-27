@@ -2,7 +2,10 @@
 
 An interactive, responsive web interface for an API Security Framework, featuring custom-built, pointer-tracking glowing card effects using React and TailwindCSS.
 
-![API Security Framework][[(https://github.com/msanmaz/glowing-components/blob/main/public/ui.png?raw=true)]](https://github.com/msanmaz/glowing-components/blob/main/public/ui.png)
+![API Security Framework](https://github.com/msanmaz/glowing-components/blob/main/public/ui.png?raw=true)
+
+
+
 ## Features
 
 - **Pointer Tracking Glow Effect**: As users hover their mouse over cards, a glow effect follows the pointer, highlighting the card's border with a visually appealing transition.
